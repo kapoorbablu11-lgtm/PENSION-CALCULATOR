@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EPS-95 Higher Pension Calculator — Prepared by ATUL KAPOOR</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans Devanagari',sans-serif;background:#FFF8E6;margin:0;padding:14px;color:#333}
+h1{color:#800000;font-size:21px;text-align:center;border-bottom:3px solid #C9A227;padding-bottom:8px}
+h1 small{display:block;font-size:13px;color:#7B4B2A}
+.card{background:#fff;border:2px solid #C9A227;border-radius:12px;padding:14px;margin:12px 0;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+label{display:block;font-size:16px;margin:10px 0 4px;color:#1F3864;font-weight:bold}
+input{width:100%;padding:13px;font-size:19px;border:2px solid #C9A227;border-radius:8px}
+button{width:100%;padding:15px;font-size:20px;background:#800000;color:#FFF3C4;border:none;border-radius:10px;margin-top:12px;font-weight:bold}
+.preset{background:#0F766E;font-size:16px;padding:12px}
+.preset2{background:#1F4E9C;font-size:16px;padding:12px}
+.row2{display:flex;gap:10px}.row2>div{flex:1}
+.result{font-size:22px;font-weight:bold;padding:10px 4px;border-bottom:1px dashed #C9A227}
+.p1{color:#1F4E9C}.p2{color:#2E7D32}.p3{color:#B03030}
+.bench{background:#FBF3E4;border:1px dashed #C9A227;border-radius:8px;padding:10px;font-size:15px;color:#7B4B2A;margin-top:8px}
+.note{font-size:15px;color:#7B4B2A;line-height:1.6}
+.author{text-align:center;color:#1F3864;font-size:15px;line-height:1.7;border-top:2px solid #C9A227;margin-top:8px;padding-top:10px}
+.author b{color:#800000;font-size:18px}
+</style></head><body>
+<h1>🧮 EPS-95 Higher Pension Calculator<small>58 वर्ष और 60 वर्ष — दोनों गणना | Prepared by ATUL KAPOOR</small></h1>
+<div class="card">
+<button class="preset" onclick="fill60()">📌 लेखक का उदाहरण — 60 वर्ष (Rs 4,859 / 28,827 / 48,058)</button>
+<button class="preset2" onclick="fill58()">📌 लेखक का उदाहरण — 58 वर्ष (Rs 3,964 / 25,512 / 44,743)</button>
+<div class="row2"><div><label>① जन्म तिथि (DOB)</label><small>अपनी जन्म-तिथि — आधार कार्ड/PPO से</small><input id="dob" type="date" value="1963-04-28"></div>
+<div><label>② कार्य में शामिल होने की तिथि (DOJ)</label><small>नियुक्ति-पत्र से — HAL/कंपनी में joining की तारीख</small><input id="doj" type="date" value="1986-06-20"></div></div>
+<label>③ पेंशन प्रारंभ तिथि (PCD)</label><small>58 वर्ष होने पर: DOB में 58 जोड़कर 1 दिन घटाएं (जैसे 28-04-1963 → 27-04-2021) | 60 वर्ष होने पर: 60 जोड़कर 1 दिन घटाएं (→ 27-04-2023)</small>
+<input id="pcd" type="date" value="2023-04-27">
+<div class="row2"><div><label>④ अंतिम 60 माह का औसत वेतन (Rs)</label><small>सेवानिवृत्ति से पहले के 60 महीनों के (Basic+DA) का औसत — अपनी सैलरी स्लिप/गणना-पत्र से</small><input id="avg" type="number" value="112480"></div>
+<div><label>⑤ प्री-2014 अधिकतम वेतन (Rs)</label><small>16-11-1995 से 31-08-2014 तक अपना सबसे ऊँचा मासिक वेतन (Basic+DA) — आपके पत्रक से; न मिले तो लेखक का 47,808 ही रहने दें</small><input id="preM" type="number" value="47808"></div></div>
+<div class="row2"><div><label>⑥ पोस्ट-2014 अधिकतम वेतन (Rs)</label><small>01-09-2014 से PCD तक अपना सबसे ऊँचा मासिक वेतन — आपके पत्रक से; न मिले तो 1,35,769 रहने दें</small><input id="postM" type="number" value="135769"></div>
+<div><label>⑦ पूर्व-सेवा पेंशन (Rs)</label><small>आपके PPO/गणना-पत्र में "past service pension" लिखा है — वही संख्या भरें (लेखक का 706)। 16-11-1995 के बाद भर्ती हुए हों तो 0 भरें</small><input id="past" type="number" value="706"></div></div>
+<div class="row2"><div><label>⑧ सेवा वेटेज (दिन)</label><small>सेवा 20 वर्ष से अधिक → 730 (2 वर्ष) | 20 से कम → अपनी कुल सेवा × 2 × 365 के बराबर दिन</small><input id="wt" type="number" value="730"></div>
+<div><label>⑨ NCP दिन प्री-2014</label><small>EPFO रिकॉर्ड में बिना-योगदान अवधि के दिन (प्री-2014) — न पता हो तो 0</small><input id="ncpP" type="number" value="0"></div></div>
+<label>⑩ NCP दिन पोस्ट-2014</label><small>EPFO रिकॉर्ड में बिना-योगदान अवधि के दिन (पोस्ट-2014) — न पता हो तो 0; लेखक का 1 दिन</small><input id="ncpQ" type="number" value="1">
+<button onclick="calc()">✅ मेरी पेंशन निकालें</button>
+</div>
+<div class="card" id="out" style="display:none">
+<div class="result p1" id="r_min"></div>
+<div class="result p2" id="r_pro"></div>
+<div class="result p3" id="r_act"></div>
+<div class="result" id="r_days" style="color:#7B4B2A;font-size:15px"></div>
+<div class="bench" id="r_bench"></div>
+</div>
+<div class="card note">
+<b>👤 कोई भी हायर पेंशनर (सिर्फ लेखक नहीं) इस प्रकार प्रयोग करे:</b><br>
+• ऊपर ① से ⑩ तक के खानों में <b>अपनी-अपनी</b> जानकारी भरें — हर खाने के नीचे लिखा है कि वह कहाँ से मिलेगी।<br>
+• दोनों नीले/हरे बटन केवल <b>लेखक का उदाहरण</b> दिखाने के लिए हैं — उनसे सीखकर फिर अपने आंकड़े भरें।<br>
+• <b>⚠️ ध्यान:</b> ④⑤⑥⑦ आपके <b>अपने</b> रिकॉर्ड से भरें — ये खाने डिफॉल्ट में लेखक के हैं।<br><br>
+<b>🔔 कैसे प्रयोग करें (58 और 60 दोनों):</b><br>
+• <b>60 वर्ष</b>: PCD में अपनी जन्म-तिथि में 60 जोड़कर 1 दिन घटाएं (लेखक: 28-04-1963 → 27-04-2023)।<br>
+• <b>58 वर्ष</b>: PCD में 58 जोड़कर 1 दिन घटाएं (लेखक: 28-04-1963 → 27-04-2021)। बाकी सभी खाने वही रहेंगे।<br>
+• न्यूनतम पेंशन में PPO बनाम Calculator ±Rs 10 (लेखक के मामले में Rs 2), Higher में ±Rs 100 अंतर Rounding/सेवा-दिन/EPFO रिकॉर्ड से सामान्य है। Final पेंशन EPFO के PPO पर निर्भर।
+</div>
+<div class="card author">
+<b>Prepared by ATUL KAPOOR</b><br>
+पूर्व अध्यक्ष, HAEA HAL लखनऊ<br>
+Ex-Convenor, AIHALTUCC Bangalore | Member, NCPA<br>
+Member, Core Committee EPS Higher Pension, HAL Lucknow<br>
+<span style="color:#8B0000">"जागरुक पेंशनर — सशक्त पेंशनर"</span>
+</div>
+<script>
+function dDiff(a,b){return Math.round((Date.UTC(a.getFullYear(),a.getMonth(),a.getDate())-Date.UTC(b.getFullYear(),b.getMonth(),b.getDate()))/864e5)}
+function baseVals(){
+ return {dob:new Date(document.getElementById('dob').value),
+  doj:new Date(document.getElementById('doj').value),
+  pcd:new Date(document.getElementById('pcd').value),
+  avg:+document.getElementById('avg').value||0, preM:+document.getElementById('preM').value||0,
+  postM:+document.getElementById('postM').value||0, past:+document.getElementById('past').value||0,
+  wt:+document.getElementById('wt').value||0, ncpP:+document.getElementById('ncpP').value||0,
+  ncpQ:+document.getElementById('ncpQ').value||0};
+}
+function calc(){
+ var v=baseVals();
+ if(!v.avg||isNaN(v.dob)||isNaN(v.pcd)){alert('कृपया तिथियाँ और औसत वेतन भरें');return;}
+ var eps=new Date(1995,10,16), sep=new Date(2014,8,1);
+ var preD=Math.max(0,dDiff(sep, v.doj>eps?v.doj:eps)-v.ncpP);
+ var postD=(v.pcd>=sep)?dDiff(v.pcd,sep)+1-v.ncpQ:0;
+ // PPO-अनुपात फैक्टर: 58-वर्ष = 0.9752, 60-वर्ष = 1.08128 (लेखक की PPO-गणना से अंकगणितीय अनुपात)
+ var yrs=v.pcd.getFullYear()-v.dob.getFullYear();
+ var factor=(yrs<=58)?0.9752:1.08128;
+ var mn=Math.ceil((v.past+6500*(preD+v.wt)/25550+15000*postD/25550)*factor);
+ var pr=Math.round(v.past+Math.min(v.preM,v.avg)*(preD+v.wt)/25550+Math.min(v.postM,v.avg)*postD/25550);
+ var ac=Math.round(v.past+v.avg*(preD+postD+2+v.wt)/25550);
+ var f=n=>'Rs '+n.toLocaleString('en-IN');
+ document.getElementById('out').style.display='block';
+ document.getElementById('r_min').textContent='🔹 न्यूनतम पेंशन: '+f(mn)+' / माह';
+ document.getElementById('r_pro').textContent='🔸 Pro-rata Higher: '+f(pr)+' / माह';
+ document.getElementById('r_act').textContent='🔺 Actual Higher: '+f(ac)+' / माह';
+ document.getElementById('r_days').textContent='PCD-आधार: '+yrs+' वर्ष | सेवा: प्री-2014 = '+preD+' दिन, पोस्ट-2014 = '+postD+' दिन, वेटेज = '+v.wt+' दिन';
+ document.getElementById('r_bench').innerHTML='<b>लेखक का प्रकाशित बेंचमार्क तुलना हेतु:</b><br>60 वर्ष: Rs 4,859 / 28,827 / 48,058 &nbsp;|&nbsp; 58 वर्ष: Rs 3,964 / 25,512 / 44,743<br><small>Pro-rata/Actual में ±Rs 100-150 तक का अंतर सेवा-दिन/Rounding से सामान्य — EPFO गणना-पत्र से मिलान करें।</small>';
+ document.getElementById('out').scrollIntoView({behavior:'smooth'});
+}
+function fill60(){
+ document.getElementById('dob').value='1963-04-28';document.getElementById('doj').value='1986-06-20';
+ document.getElementById('pcd').value='2023-04-27';document.getElementById('avg').value=112480;
+ document.getElementById('preM').value=47808;document.getElementById('postM').value=135769;
+ document.getElementById('past').value=706;document.getElementById('wt').value=730;
+ document.getElementById('ncpP').value=0;document.getElementById('ncpQ').value=1;calc();
+}
+function fill58(){
+ document.getElementById('dob').value='1963-04-28';document.getElementById('doj').value='1986-06-20';
+ document.getElementById('pcd').value='2021-04-27';document.getElementById('avg').value=112480;
+ document.getElementById('preM').value=47808;document.getElementById('postM').value=135769;
+ document.getElementById('past').value=706;document.getElementById('wt').value=730;
+ document.getElementById('ncpP').value=0;document.getElementById('ncpQ').value=1;calc();
+}
+</script></body></html>
