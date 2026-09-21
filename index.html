@@ -1,215 +1,42 @@
 <!DOCTYPE html>
 <html lang="hi"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EPS-95 Higher Pension Calculator — तैयार: अतुल कपूर</title>
+<title>पेंशन योद्धा — अतुल कपूर | तुरंत खोलें</title>
 <style>
-*{box-sizing:border-box}
-body{font-family:'Noto Sans Devanagari',sans-serif;background:#FFF8E6;margin:0;padding:14px;color:#333}
-h1{color:#800000;font-size:21px;text-align:center;border-bottom:3px solid #C9A227;padding-bottom:8px;margin-bottom:6px}
-h1 small{display:block;font-size:13px;color:#7B4B2A}
-.auth{color:#1F3864;text-align:center;font-size:14px;line-height:1.7;margin:4px 0}
-.auth b{color:#800000;font-size:18px}
-.free{color:#0F766E;font-weight:bold;text-align:center;font-size:15px;margin:8px 0}
-.card{background:#fff;border:2px solid #C9A227;border-radius:12px;padding:14px;margin:12px 0;box-shadow:0 2px 6px rgba(0,0,0,.08)}
-.goldbox{background:#FFF3C4;border:2px dashed #C9A227;border-radius:12px;padding:12px;margin:12px 0;text-align:center;font-size:16px;line-height:1.7}
-.refbox{background:#E8F5E9;border:2px solid #2E7D32;border-radius:12px;padding:12px;margin:12px 0;font-size:15px;line-height:1.8}
-label{display:block;font-size:16px;margin:10px 0 4px;color:#1F3864;font-weight:bold}
-small{display:block;font-size:13px;color:#7B4B2A;margin-bottom:3px;line-height:1.5}
-input,select{width:100%;padding:13px;font-size:19px;border:2px solid #C9A227;border-radius:8px;background:#fff}
-button{width:100%;padding:15px;font-size:20px;}
-body.big{font-size:20px}
-body.big label{font-size:21px}
-body.big small{font-size:16.5px}
-body.big input,body.big select{font-size:25px;padding:16px}
-body.big button{font-size:24px}
-body.big .result{font-size:27px}
-body.big .goldbox,body.big .refbox{font-size:19px}
-#bigBtn{position:fixed;top:10px;right:10px;z-index:99;width:auto;padding:9px 14px;font-size:15px;margin:0;border-radius:20px;box-shadow:0 2px 6px rgba(0,0,0,.3)background:#800000;color:#FFF3C4;border:none;border-radius:10px;margin-top:12px;font-weight:bold}
-.btn2{display:flex;gap:10px}.btn2 button{flex:1;font-size:15px;padding:11px;margin-top:10px}
-.b-green{background:#2E7D32}.b-blue{background:#1F4E9C}
-.row2{display:flex;gap:10px}.row2>div{flex:1}
-.result{font-size:21px;font-weight:bold;padding:10px 4px;border-bottom:1px dashed #C9A227}
-.p1{color:#1F4E9C}.p2{color:#2E7D32}.p3{color:#B03030}
-.note{font-size:15px;color:#7B4B2A;line-height:1.7}
-.warn{border:2px solid #B03030;background:#FDECEA;border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14.5px;line-height:1.65;color:#7a2a22}
-details{background:#fff;border:2px solid #C9A227;border-radius:12px;padding:10px 14px;margin:12px 0}
-summary{font-weight:bold;color:#1F3864;font-size:16px;cursor:pointer}
-table{border-collapse:collapse;width:100%;font-size:14px;margin-top:8px}
-td,th{border:1px solid #C9A227;padding:5px 8px;text-align:center}
-th{background:#800000;color:#FFF3C4}
-.footer{text-align:center;color:#1F3864;font-size:14px;line-height:1.7;border-top:2px solid #C9A227;margin-top:10px;padding-top:10px}
-.footer b{color:#800000}
-#pastout{display:none;background:#F0F7FF;border:2px solid #1F4E9C;border-radius:10px;padding:12px;margin-top:10px;font-size:15px;line-height:1.8}
+body{font-family:'Noto Sans Devanagari',sans-serif;background:#FFF8E6;margin:0;padding:20px;color:#333}
+h1{color:#800000;font-size:22px;text-align:center;border-bottom:3px solid #C9A227;padding-bottom:10px}
+h1 small{display:block;font-size:14px;color:#7B4B2A;margin-top:6px}
+.note{text-align:center;color:#1F3864;font-size:15px;margin:12px 0;line-height:1.7}
+.card{background:#fff;border:2px solid #C9A227;border-radius:14px;padding:18px;margin:16px 0;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.card h2{color:#1F3864;font-size:18px;margin:0 0 8px}
+.card p{color:#7B4B2A;font-size:14.5px;line-height:1.7;margin:0 0 12px}
+a.btn{display:block;text-align:center;background:#800000;color:#FFF3C4;text-decoration:none;padding:15px;border-radius:10px;font-size:19px;font-weight:bold}
+a.btn2{background:#1F4E9C}
+a.btn3{background:#0F766E}
+.free{color:#0F766E;font-weight:bold;text-align:center;font-size:15px}
+.footer{text-align:center;color:#1F3864;font-size:13.5px;line-height:1.7;border-top:2px solid #C9A227;margin-top:14px;padding-top:10px}
 </style></head><body>
-<h1>🧮 EPS-95 Higher Pension Calculator<small>न्यूनतम · Pro-rata · Actual Higher Pension — 58 व 60 वर्ष</small></h1>
-<div class="auth"><b>तैयार: अतुल कपूर</b><br>Ex-President, HAEA HAL लखनऊ · Ex-Convener, AIHALTUCC बैंगलुरु<br>NCPA सदस्य · EPS Higher Pension Core Committee, HAL लखनऊ</div>
-<div class="free">पूरी तरह निःशुल्क — इंटरनेट के बिना भी चलता है</div>
-<div class="goldbox">📌 <b>यह लेखक का उदाहरण है (खुद का)।</b><br>आप अपनी-अपनी फिगर सब खुद डालेंगे — तभी आपकी पेंशन आपके अनुसार निकल आएगी।</div>
-<div class="refbox">📌 <b>लेखक का उदाहरण (जाँच हेतु):</b><br>🟢 <b>60 वर्ष:</b> न्यूनतम Rs 4,859 · Pro-rata Rs 28,827 · Actual Rs 48,058<br>🔵 <b>58 वर्ष:</b> न्यूनतम Rs 3,964 · Pro-rata Rs 25,512 · Actual Rs 44,743</div>
+<h1>🇮🇳 पेंशन योद्धाओं की आवाज़<small>अतुल कपूर — EPS-95 Higher Pension राष्ट्र-अभियान</small></h1>
+<div class="note">नीचे दिए तीनों उपकरण 100% निःशुल्क हैं — किसी भी मोबाइल/कंप्यूटर पर, Chrome में सबसे अच्छे चलते हैं।</div>
+
 <div class="card">
-<label>① जन्म तिथि (DOB)</label><small>अपनी जन्म-तिथि — आधार कार्ड/PPO से</small>
-<input id="dob" type="date" value="1963-04-28" onchange="syncAge()">
-<label>② कार्य में शामिल होने की तिथि (DOJ)</label><small>नियुक्ति-पत्र से — कंपनी/HAL में joining की तारीख</small>
-<input id="doj" type="date" value="1986-06-20">
-<div class="row2"><div><label>③ वास्तविक Exit तिथि (सेवानिवृत्त)</label><small>आपकी सच्ची सेवानिवृत्ति — यही तिथि पूर्व-सेवा (Table B) फैक्टर तय करती है; PPO/नियुक्ति-पत्र से भरें</small>
-<input id="pcd" type="date" value="2023-04-27" onchange="syncAge()"></div>
-<div><label>④ पेंशन आयु</label><small>58 → गणना 58-पर-exit मानकर: पूर्व-सेवा 605, आयु-फैक्टर 1.00 (58 आधार आयु) · 60 → खाना ③ अनुसार: पूर्व-सेवा 706, फैक्टर 1.08128</small>
-<select id="age" onchange="calc()"><option value="60" selected>60 वर्ष</option><option value="58">58 वर्ष</option></select></div></div>
-<div class="row2"><div><label>⑤ 15-11-1995 को वेतन (₹)</label><small>16-11-1995 की सैलरी स्लिप/Form 3-A से — अधिकतर का 5,000 या 2,500। PPO में पूर्व-सेवा पेंशन नहीं लिखी होती — यह कैलकुलेटर EPFO-शैली में खुद निकालता है (जैसे 85 × 8.301 = 706)</small>
-<input id="sal95" type="number" value="5000"></div>
-<div><label>⑥ अधिकतम वेतन 16-11-1995 से 31-08-2014 (₹)</label><small>इस अवधि का सबसे ऊँचा मासिक वेतन (Basic+DA) — अपने पत्रक से</small>
-<input id="preM" type="number" value="47808"></div></div>
-<div class="row2"><div><label>⑦ अधिकतम वेतन 01-09-2014 से Exit (₹)</label><small>इस अवधि का सबसे ऊँचा मासिक वेतन — अपने पत्रक से</small>
-<input id="postM" type="number" value="135769"></div>
-<div><label>⑧ Ceiling: प्री-2014 (₹)</label><small>वेतन-सीमा — सामान्यतः 6,500</small>
-<input id="cPre" type="number" value="6500"></div></div>
-<div class="row2"><div><label>⑨ Ceiling: पोस्ट-2014 (₹)</label><small>वेतन-सीमा — सामान्यतः 15,000</small>
-<input id="cPost" type="number" value="15000"></div>
-<div><label>⑩ अंतिम 60 माह का औसत वेतन (₹)</label><small>सेवानिवृत्ति से पहले 60 महीनों के (Basic+DA) का औसत — सैलरी स्लिप/गणना-पत्र से</small>
-<input id="avg" type="number" value="112480"></div></div>
-<div class="row2"><div><label>⑪ NCP दिन — 16-11-1995 से 31-08-2014</label><small>बिना-योगदान अवधि के दिन — पता न हो तो 0</small>
-<input id="ncpP" type="number" value="0"></div>
-<div><label>⑫ NCP दिन — 01-09-2014 से Exit</label><small>बिना-योगदान अवधि के दिन — पता न हो तो 0</small>
-<input id="ncpQ" type="number" value="1"></div></div>
-<label>⑬ सेवा वेटेज (दिन)</label><small>सेवा 20 वर्ष से अधिक → 730; 20 से कम → (सेवा-वर्ष × 2 माह) के बराबर दिन</small>
-<input id="wt" type="number" value="730">
-<button onclick="calc()">✅ मेरी पेंशन निकालो</button>
-<div class="btn2">
-<button class="b-green" onclick="showPast()">🔍 पूर्व-सेवा पेंशन (EPFO-शैली गणना)</button>
-<button class="b-blue" onclick="fillAuthor()">📘 लेखक का उदाहरण भरें (जाँच हेतु)</button>
+<h2>🧮 Higher Pension Calculator</h2>
+<p>58 व 60 वर्ष की अपनी न्यूनतम / Pro-rata / Actual Higher Pension तुरंत निकालें। ऊपर "बड़े अक्षर" बटन से अक्षर बड़े करें। न्यूनतम में PPO बनाम Calculator ±₹10 सामान्य।</p>
+<a class="btn" href="calculator.html">कैलकुलेटर खोलें →</a>
 </div>
-<div id="pastout"></div>
-</div>
-<div class="card" id="out" style="display:none">
-<div class="result p1" id="r_min"></div>
-<div class="result p2" id="r_pro"></div>
-<div class="result p3" id="r_act"></div>
-<div class="result" id="r_past" style="color:#0F766E;font-size:16px"></div>
-<div class="result" id="r_days" style="color:#7B4B2A;font-size:15px"></div>
-<div class="note" style="margin-top:8px">न्यूनतम में PPO बनाम Calculator ±Rs 10, Higher में ±Rs 100 अंतर Rounding/सेवा-दिन/EPFO रिकॉर्ड से सामान्य है। <b>Final पेंशन EPFO के PPO पर निर्भर।</b></div>
-</div>
-<details><summary>📊 Table B — रेडी-रिकनर (पूरा फैक्टर तालिका, 1–34 वर्ष)</summary>
-<div id="tbtable"></div>
-<div id="tb85" class="note" style="margin-top:10px"></div>
-<div class="note" style="margin-top:6px">फैक्टर का चयन 16-11-1995 से Exit तिथि तक की अवधि से होता है (जैसे 25 वर्ष 5 माह → "26 से कम" → 7.117)। जिनका बेस 85 नहीं है, वे फैक्टर को अपने बेस (80/95/105/120/135/150/170) से गुणा करके अपना नंबर निकाल सकते हैं — फैक्टर वही रहेगा, सिर्फ बेस बदलेगा। 34 वर्ष से अधिक अवधि हेतु सरकार ने 14-06-2024 को तालिका 42 वर्ष तक बढ़ाई है — उन फैक्टरों के लिए EPFO कार्यालय से जाँच करें।</div></details>
+
 <div class="card">
-<div style="background:#800000;color:#FFF3C4;border-radius:10px;padding:10px;text-align:center;font-size:17px;font-weight:bold">⚠️ तीन ज़रूरी चेतावनियाँ</div>
-<div class="warn">1. सैलरी वही लें जो 16-11-1995 को थी। Form 3-A न मिले तो EPFO अक्सर डिफ़ॉल्ट सैलरी ≤₹2,500 मान लेता है, भले ही असल सैलरी ज़्यादा रही हो — इससे बेस 85 की जगह 80 लग जाता है, यह चेक करना ज़रूरी है!</div>
-<div class="warn">2. दोनों जगह (past service और post-95 service) 6 महीने या उससे ज़्यादा की सेवा अगले पूरे साल में राउंड होती है।</div>
-<div class="warn">3. जन्म/जॉइनिंग/exit की तिथि गलत भरेंगे तो आकड़ा अपने-आप गलत निकलेगा। तारीख़ PPO/नियुक्ति-पत्र से ही भरें।</div>
+<h2>📖 पूरी किताब ऑनलाइन (फ्लिपबुक — 677 पेज)</h2>
+<p>"▶ पढ़ना शुरू करें" दबाएँ; आगे बढ़ने के लिए तीर/स्वाइप। भाग के अंत में "अगला भाग खोलें ▶" — सातों भाग इसी कड़ी से जुड़े हैं। इंटरनेट ज़रूरी।</p>
+<a class="btn btn2" href="Pension_Book_Part1.html">फ्लिपबुक खोलें →</a>
 </div>
+
 <div class="card">
-<div style="background:#800000;color:#FFF3C4;border-radius:10px;padding:10px;text-align:center;font-size:17px;font-weight:bold">❓ 58 में 605 और 60 में 706 — क्यों?</div>
-<div class="note" style="margin-top:8px">गणित का सिद्धांत: पूर्व-सेवा फैक्टर (Table B) <b>वास्तविक Exit तिथि (खाना ③)</b> से तय होता है। लेखक का exit 60 पर (27-04-2023) → 27 वर्ष 5 माह → "28 से कम" → फैक्टर 8.301 → <b>85 × 8.301 = 706</b> (PPO में यही लिखा है)। यदि exit 58 पर होता (27-04-2021) → 25 वर्ष 5 माह → "26 से कम" → 7.117 → <b>85 × 7.117 = 605</b>। पेंशन-आयु (खाना ④) चुनने पर गणना उसी आयु की exit-तिथि पर होती है — 58 → पूर्व-सेवा 605 (85×7.117), आयु-फैक्टर 1.00 (58 आधार आयु — कोई कटौती नहीं) → न्यूनतम 3,964; 60 → पूर्व-सेवा 706 (85×8.301), आयु-फैक्टर 1.08128 → न्यूनतम 4,859। तीनों अंक (न्यूनतम/Pro-rata/Actual) एक ही पूर्व-सेवा से पूरी तरह सुसंगत।</div>
-<div class="btn2">
-<button class="b-green" onclick="setAge(58)">👉 पेंशन-आयु 58 देखें (605 · फैक्टर 1.00)</button>
-<button class="b-blue" onclick="setAge(60)">↩ पेंशन-आयु 60 देखें (706 · फैक्टर 1.08128)</button>
-</div></div>
-<div class="footer">
-❖ कैलकुलेटर गणना-सहायक है; अंतिम निर्धारण EPFO रिकॉर्ड व न्यायालयीन आदेशों के अनुसार ❖<br>
-<b>Prepared by ATUL KAPOOR</b><br>
-"जागरुक पेंशनर — सशक्त पेंशनर"<br>
-<span style="color:#8B0000">kapoorbablu11-lgtm.github.io/PENSION-CALCULATOR/</span>
+<h2>📕 किताब की PDF (Google Drive)</h2>
+<p>पूरी 677-पेज की PDF — डाउनलोड करके बाद में बिना इंटरनेट भी पढ़ें।</p>
+<a class="btn btn3" href="https://drive.google.com/file/d/1AZW7ROJOhlEl_CC2WvaW3YvBATrYTJrY/view?usp=drivesdk">PDF खोलें →</a>
 </div>
-<script>
-var TB=[0,1.039,1.122,1.212,1.309,1.413,1.526,1.649,1.781,1.923,2.077,2.243,2.423,2.616,2.826,3.052,3.296,3.560,3.845,4.152,4.485,4.843,5.231,5.649,6.101,6.589,7.117,7.686,8.301,8.965,9.862,10.457,11.294,12.197,13.173];
-var EPS=new Date(1995,10,16), SEP=new Date(2014,8,1);
-function g(id){return document.getElementById(id)}
-function dDiff(a,b){return Math.round((Date.UTC(a.getFullYear(),a.getMonth(),a.getDate())-Date.UTC(b.getFullYear(),b.getMonth(),b.getDate()))/864e5)}
-function baseA(sal,svc){
- if(svc<=11)return sal<=2500?80:85;
- if(svc<=15)return sal<=2500?95:105;
- if(svc<=20)return sal<=2500?120:135;
- return sal<=2500?150:170;
-}
-function pastService(exit,sal95,doj){
- if(isNaN(exit)||exit<EPS)return{base:0,idx:0,factor:0,past:0,svc:0,over34:false,pre95:false};
- var pre95=true, svc=0, base=0;
- if(!isNaN(doj)&&doj<EPS){
-  svc=Math.floor((EPS-doj)/31557600000+0.5);
-  base=baseA(sal95,svc);
- } else pre95=false;
- var yrs=(exit-EPS)/31557600000, Y=Math.floor(yrs+1e-9), idx=(yrs-Y>0.0001)?Y+1:Y;
- var over34=idx>34; if(over34)idx=34;
- return{base:base,idx:idx,factor:TB[idx],past:pre95?Math.round(base*TB[idx]):0,svc:svc,over34:over34,pre95:pre95};
-}
-function addY(d,n){var t=new Date(d); t.setFullYear(t.getFullYear()+n); t.setDate(t.getDate()-1); return t;}
-function calc(){
- var dob=new Date(g('dob').value), doj=new Date(g('doj').value), exitA=new Date(g('pcd').value);
- var age=+g('age').value;
- var avg=+g('avg').value||0, preM=+g('preM').value||0, postM=+g('postM').value||0;
- var cPre=+g('cPre').value||6500, cPost=+g('cPost').value||15000, sal95=+g('sal95').value||0;
- var wt=+g('wt').value||730, ncpP=+g('ncpP').value||0, ncpQ=+g('ncpQ').value||0;
- if(isNaN(dob)||isNaN(doj)||isNaN(exitA)||!avg){alert('कृपया तिथियाँ ①②③ और औसत वेतन ⑩ भरें');return;}
- var svc=(age===58)?addY(dob,58):exitA;
- var ps=pastService(svc,sal95,doj);
- var preD=Math.max(0,dDiff(SEP,doj>EPS?doj:EPS)-ncpP);
- var postD=(svc>=SEP)?dDiff(svc,SEP)+1-ncpQ:0;
- var f=(age===58)?1:1.08128;
- var mn=Math.ceil((ps.past+cPre*(preD+wt)/25550+cPost*postD/25550)*f);
- var pr=Math.round(ps.past+Math.min(preM,avg)*(preD+wt)/25550+Math.min(postM,avg)*postD/25550);
- var ac=Math.round(ps.past+avg*(preD+postD+2+wt)/25550);
- var fmt=n=>'Rs '+n.toLocaleString('en-IN');
- g('out').style.display='block';
- g('r_min').textContent='🔹 न्यूनतम पेंशन: '+fmt(mn)+' / माह';
- g('r_pro').textContent='🔸 Pro-rata Higher: '+fmt(pr)+' / माह';
- g('r_act').textContent='🔺 Actual Higher: '+fmt(ac)+' / माह';
- g('r_past').textContent=ps.pre95?('🔍 पूर्व-सेवा पेंशन: बेस '+ps.base+' (16-11-1995 तक सेवा '+ps.svc+' वर्ष) × '+ps.factor+' ('+ps.idx+' वर्ष से कम; '+ (age===58?'58-पर-exit मानकर':'वास्तविक Exit ③ पर') +') = '+fmt(ps.past)):'🔍 16-11-1995 के बाद भर्ती — पूर्व-सेवा पेंशन लागू नहीं (0)';
- g('r_days').textContent='पेंशन-आयु: '+age+' वर्ष (आयु-फैक्टर '+f+') | सेवा-दिन: '+age+' तक → प्री-2014 = '+preD+' दिन, पोस्ट-2014 = '+postD+' दिन, वेटेज = '+wt+' दिन';
- g('out').scrollIntoView({behavior:'smooth'});
-}
-function setAge(n){
- var d=g('dob').value;
- if(!d){alert('पहले खाना ① (जन्म तिथि) भरें');return;}
- var t=new Date(d); t.setFullYear(t.getFullYear()+n); t.setDate(t.getDate()-1);
- g('pcd').value=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
- g('age').value=String(n);
- calc();
-}
-function syncAge(){
- var d=g('dob').value, p=g('pcd').value;
- if(!d||!p)return;
- var dob=new Date(d), pcd=new Date(p);
- var age=pcd.getFullYear()-dob.getFullYear();
- if(pcd<new Date(dob.getFullYear()+age,dob.getMonth(),dob.getDate()))age--;
- g('age').value=(age<=58)?'58':'60';
- calc();
-}
-function fillAuthor(){
- g('dob').value='1963-04-28'; g('doj').value='1986-06-20'; g('pcd').value='2023-04-27';
- g('age').value='60'; g('sal95').value='5000'; g('preM').value='47808'; g('postM').value='135769';
- g('cPre').value='6500'; g('cPost').value='15000'; g('avg').value='112480';
- g('ncpP').value='0'; g('ncpQ').value='1'; g('wt').value='730';
- calc();
-}
-function showPast(){
- var pcd=new Date(g('pcd').value), sal95=+g('sal95').value||0, doj=new Date(g('doj').value);
- if(isNaN(pcd)){alert('पहले खाना ③ (Exit तिथि) भरें');return;}
- if(isNaN(doj)){alert('पहले खाना ② (Joining तिथि) भरें');return;}
- var ps=pastService(pcd,sal95,doj);
- var yrs=((pcd-EPS)/31557600000).toFixed(1);
- var h='<b>🔍 पूर्व-सेवा पेंशन (EPFO-शैली गणना):</b><br>';
- if(!ps.pre95){h+='आपकी भर्ती 16-11-1995 के बाद है — पूर्व-सेवा पेंशन लागू नहीं (0)';}
- else{
-  h+='① 16-11-1995 तक की FPF-71 सेवा: <b>'+ps.svc+' वर्ष</b> (joining से 16-11-1995 तक; 6 माह+ → अगला पूरा साल)<br>';
-  h+='② 16-11-1995 की सैलरी ₹'+sal95.toLocaleString('en-IN')+' ('+(sal95<=2500?'≤₹2,500':'&gt;₹2,500')+') → टेबल A बेस: <b>'+ps.base+'</b><br>';
-  h+='<span style="font-size:12.5px;color:#7B4B2A">टेबल A: सेवा ≤11 वर्ष → 80/85 · 11–15 → 95/105 · 15–20 → 120/135 · 20+ → 150/170 (सैलरी ≤2500/&gt;2500 अनुसार)</span><br>';
-  h+='③ 16-11-1995 से Exit ('+pcd.toLocaleDateString('en-IN')+') = <b>'+yrs+' वर्ष</b> → टेबल B: "'+ps.idx+' वर्ष से कम" → फैक्टर <b>'+ps.factor+'</b><br>';
-  h+='<b>पूर्व-सेवा पेंशन = '+ps.base+' × '+ps.factor+' = Rs '+ps.past.toLocaleString('en-IN')+' / माह</b><br>';
-  h+='<span style="font-size:12.5px;color:#7B4B2A">☝️ PPO में यह नंबर नहीं लिखा होता — EPFO इसी सूत्र से निकालता है (जैसे लेखक का 85 × 8.301 = 706)</span>';
-  if(ps.over34)h+='<br>⚠️ अवधि 34 वर्ष से अधिक — 14-06-2024 के संशोधन के बाद का फैक्टर EPFO से जाँचें।';
- }
- g('pastout').innerHTML=h; g('pastout').style.display='block';
-}
-var bands=[[1,9],[10,18],[19,27],[28,34]];
-var fac='',ru='';
-bands.forEach(function(b){
- fac+='<tr>'; ru+='<tr>';
- for(var i=b[0];i<=b[1];i++){fac+='<th>'+i+'</th>'; ru+='<th>'+i+'</th>';}
- fac+='</tr><tr>'; ru+='</tr><tr>';
- for(var i=b[0];i<=b[1];i++){fac+='<td><b>'+TB[i]+'</b></td>'; ru+='<td><b>'+Math.round(85*TB[i])+'</b></td>';}
- fac+='</tr>'; ru+='</tr>';
-});
-g('tbtable').innerHTML='<b>📊 Table B — फैक्टर (16-11-1995 से Exit तक "पूरे वर्ष + 1" स्लैब)</b><table>'+fac+'</table>';
-g('tb85').innerHTML='<b>बेस 85 → पूर्व-सेवा पेंशन (₹/माह)</b><table>'+ru+'</table>';
-</script></body></html>
+
+<div class="free">ज्ञान बाँटें · अधिकार जीतें — "जागरुक पेंशनर — सशक्त पेंशनर"</div>
+<div class="footer"><b>Prepared by ATUL KAPOOR</b><br>पूर्व अध्यक्ष, HAEA HAL लखनऊ · Member, NCPA</div>
+</body></html>
